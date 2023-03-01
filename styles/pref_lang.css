@@ -35,8 +35,3 @@ label {
 		transform: translateY(-10px);
 	}
 }
-
-dialog {
-	animation: appear 350ms ease-in 1;
-	max-width: 500px;
-}
