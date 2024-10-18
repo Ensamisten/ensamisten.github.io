@@ -41,13 +41,13 @@ body {
   position: relative;
   width: max-content;
   z-index: 2;
-  transform: translateX(38px);
+  transform: translateX(40px);
 }
 
 .hexagon {
   width: 120px;
   height: 69.28px;
-  background-color: #4caf50;
+  background-color: #800080;
   position: relative;
   margin: 0 -30px;
   cursor: pointer;
@@ -74,13 +74,13 @@ body {
 
 .hexagon:before {
   bottom: 100%;
-  border-bottom: 34.64px solid #4caf50;
+  border-bottom: 34.64px solid #800080;
 }
 
 .hexagon:after {
   top: 100%;
   width: 0;
-  border-top: 34.64px solid #4caf50;
+  border-top: 34.64px solid #800080;
 }
 
 .hexagon a {
