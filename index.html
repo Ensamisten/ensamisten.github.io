@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Website</title>
+  <title>Personal Website with Cards</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -15,13 +15,13 @@
 
     <!-- Hexagon List Panel -->
     <div class="hexagon-list">
-      <div class="hexagon">
+      <div class="hexagon hexagon-left">
         <a href="#aboutModal">About Me</a>
       </div>
-      <div class="hexagon">
+      <div class="hexagon hexagon-center">
         <a href="#projectsModal">Projects</a>
       </div>
-      <div class="hexagon">
+      <div class="hexagon hexagon-right">
         <a href="#contactModal">Contact</a>
       </div>
     </div>
@@ -29,8 +29,13 @@
     <!-- Modal for About Me -->
     <div class="modal" id="aboutModal">
       <div class="modal-content">
-        <h2>About Me</h2>
-        <p>I like birds.</p>
+        <div class="card">
+          <div class="background-animation"></div>
+          <div class="content">
+            <h2>About Me</h2>
+            <p>Hello, world! I am a web developer and designer.</p>
+          </div>
+        </div>
         <a href="#" class="close-modal">Close</a>
       </div>
     </div>
@@ -38,13 +43,13 @@
     <!-- Modal for Projects -->
     <div class="modal" id="projectsModal">
       <div class="modal-content">
-        <h2>Projects</h2>
-        <p>Here are some of my favorite projects that I've worked on:</p>
-        <ul>
-          <li>"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."</li>
-          <li>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."</li>
-          <li>"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut."</li>
-        </ul>
+        <div class="card">
+          <div class="background-animation"></div>
+          <div class="content">
+            <h2>Projects</h2>
+            <p>Here are some of my favorite projects that I've worked on:</p>
+          </div>
+        </div>
         <a href="#" class="close-modal">Close</a>
       </div>
     </div>
@@ -52,8 +57,13 @@
     <!-- Modal for Contact -->
     <div class="modal" id="contactModal">
       <div class="modal-content">
-        <h2>Contact Me</h2>
-        <p>If you'd like to get in touch, please drop me a message or connect with me on social media.</p>
+        <div class="card">
+          <div class="background-animation"></div>
+          <div class="content">
+            <h2>Contact Me</h2>
+            <p>If you'd like to get in touch, please drop me a message.</p>
+          </div>
+        </div>
         <a href="#" class="close-modal">Close</a>
       </div>
     </div>
