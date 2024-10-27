@@ -195,15 +195,15 @@ body {
 
 .hexagon-left {
   left: 38px; /* Adjust to move left hexagon horizontally */
-  top: -50px; /* Adjust to move left hexagon vertically */
+  top: -46px; /* Adjust to move left hexagon vertically */
 }
 
 .hexagon-center {
-  left: 86.2px; /* Center hexagon horizontally */
-  top: -60px; /* Adjust to move center hexagon vertically */
+  left: 89.5px; /* Center hexagon horizontally */
+  top: -55px; /* Adjust to move center hexagon vertically */
 }
 
 .hexagon-right {
   left: 134px; /* Adjust to move right hexagon horizontally */
-  top: -50px; /* Adjust to move right hexagon vertically */
+  top: -43px; /* Adjust to move right hexagon vertically */
 }
