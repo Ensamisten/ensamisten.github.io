@@ -965,3 +965,280 @@ body {
     }
 
 }
+
+
+/* ==================================================
+   23. CONTACTS ROOM
+================================================== */
+
+.contacts-room {
+    background: #17152e;
+}
+
+
+/* Discord-inspired animated background */
+
+.contacts-room::before {
+    background:
+
+        radial-gradient(
+            ellipse at 50% 48%,
+            rgba(88, 101, 242, 0.85),
+            transparent 65%
+        ),
+
+        radial-gradient(
+            ellipse at 15% 20%,
+            rgba(114, 137, 218, 0.5),
+            transparent 55%
+        ),
+
+        radial-gradient(
+            ellipse at 85% 80%,
+            rgba(80, 40, 160, 0.7),
+            transparent 55%
+        ),
+
+        linear-gradient(
+            135deg,
+            #111020,
+            #252450,
+            #17152e
+        );
+
+    background-size: 200% 200%;
+
+    animation: roomGradient 12s ease infinite;
+}
+
+
+/* ==================================================
+   CONTACT LINKS
+================================================== */
+
+.contact-links {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 24px;
+
+    pointer-events: none;
+}
+
+
+/* Individual contact card */
+
+.contact-link {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    width: min(320px, 100%);
+
+    padding: 18px 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 14px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+    text-align: left;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    touch-action: manipulation;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Discord colours */
+
+.discord-link {
+    background: #5865f2;
+}
+
+
+/* Contact icon */
+
+.contact-icon {
+    display: block;
+
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    color: #ffffff;
+
+    pointer-events: none;
+}
+
+
+/* Contact information */
+
+.contact-info {
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    gap: 5px;
+
+    pointer-events: none;
+}
+
+.contact-info strong {
+    font-size: 1.05rem;
+
+    font-weight: 700;
+}
+
+.contact-username {
+    font-size: 0.85rem;
+
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* External link arrow */
+
+.contact-arrow {
+    font-size: 1.3rem;
+
+    opacity: 0.8;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   CONTACT INTERACTION
+================================================== */
+
+@media (any-hover: hover) {
+
+    .discord-link:hover {
+        background: #4752c4;
+
+        transform: translateY(-4px);
+
+        border-color: rgba(255, 255, 255, 0.6);
+
+        box-shadow:
+            0 10px 35px rgba(88, 101, 242, 0.4);
+    }
+
+    /*
+       Contact links must not interfere
+       with temporary room previews.
+    */
+
+    .site-shell:has(.letter:hover) .contact-link {
+        pointer-events: none;
+    }
+
+}
+
+
+/* Only allow contact interaction when
+   Room 10 is permanently selected. */
+
+#room-10:not(:checked) ~ .room-layer .contact-link {
+    pointer-events: none;
+}
+
+
+/* Click feedback */
+
+.contact-link:active {
+    transform: scale(0.97);
+}
+
+
+/* Keyboard accessibility */
+
+.contact-link:focus-visible {
+    outline: 3px solid #ffffff;
+
+    outline-offset: 5px;
+}
+
+
+/* ==================================================
+   CONTACTS — MOBILE
+================================================== */
+
+@media (max-width: 480px) {
+
+    .contact-links {
+        margin-top: 18px;
+    }
+
+    .contact-link {
+        width: min(280px, 100%);
+
+        padding: 14px 18px;
+
+        gap: 12px;
+    }
+
+    .contact-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .contact-info strong {
+        font-size: 1rem;
+    }
+
+    .contact-username {
+        font-size: 0.8rem;
+    }
+
+}
+
+
+/* ==================================================
+   CONTACTS — SHORT SCREENS
+================================================== */
+
+@media (max-height: 500px) {
+
+    .contact-links {
+        margin-top: 10px;
+    }
+
+    .contact-link {
+        width: min(260px, 100%);
+
+        padding: 8px 14px;
+    }
+
+    .contact-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .contact-info {
+        gap: 2px;
+    }
+
+}
