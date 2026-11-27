@@ -70,6 +70,7 @@ body {
 
 .homepage {
     position: relative;
+    z-index: 30;
 
     min-height: 100vh;
     min-height: 100svh;
@@ -82,7 +83,7 @@ body {
 
     padding: 30px 16px;
 
-    pointer-events: none;
+    pointer-events: auto;
 }
 
 
