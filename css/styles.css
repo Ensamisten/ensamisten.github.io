@@ -489,3 +489,78 @@ body {
     }
 
 }
+
+
+/* ========================================
+   ENSAMISTEN NAVIGATION FIX
+======================================== */
+
+/* Keep the homepage navigation above the modal */
+
+.homepage {
+    position: relative;
+    z-index: 20;
+
+    pointer-events: none;
+}
+
+/* Allow interaction with the actual letters */
+
+.wordmark {
+    position: relative;
+    z-index: 21;
+
+    pointer-events: auto;
+}
+
+.letter {
+    position: relative;
+    z-index: 22;
+
+    pointer-events: auto;
+    touch-action: manipulation;
+}
+
+/* Keep the overlay behind the navigation */
+
+.room-layer {
+    z-index: 10;
+}
+
+/* Show the overlay when a letter is hovered,
+   even when no room has been selected */
+
+.site-shell:has(.letter:hover) .room-layer {
+    display: flex;
+    pointer-events: none;
+}
+
+/* Keep the selected room interactive */
+
+.room-card {
+    pointer-events: auto;
+}
+
+/* Ensure the return-home control works */
+
+.close-room {
+    position: relative;
+    z-index: 5;
+
+    pointer-events: auto;
+}
+
+/* Prevent the instruction text from blocking anything */
+
+.instruction {
+    pointer-events: none;
+}
+
+/* Improve letter spacing on small screens */
+
+@media (max-width: 480px) {
+    .wordmark {
+        font-size: clamp(2.1rem, 10.2vw, 3.2rem);
+        letter-spacing: -0.065em;
+    }
+}
