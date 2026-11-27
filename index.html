@@ -1,73 +1,175 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Website with Cards</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f0f0f0">
+
+    <title>Ensamisten</title>
+
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
-  <div class="container">
-    <!-- Ensamisten Title -->
-    <div class="ensamisten-title">Ensamisten</div>
+<body id="top">
 
-    <!-- Hexagon List Panel -->
-    <div class="hexagon-list">
-      <div class="hexagon hexagon-left">
-        <a href="#aboutModal">About Me</a>
-      </div>
-      <div class="hexagon hexagon-center">
-        <a href="#projectsModal">Projects</a>
-      </div>
-      <div class="hexagon hexagon-right">
-        <a href="#contactModal">Contact</a>
-      </div>
-    </div>
+    <main class="container">
 
-    <!-- Modal for About Me -->
-    <div class="modal" id="aboutModal">
-      <div class="modal-content">
-        <div class="card">
-          <div class="background-animation"></div>
-          <div class="content">
-            <h2>About Me</h2>
-            <p>Hello, world! I am a web developer and designer.</p>
-          </div>
+        <div class="logo" aria-label="Ensamisten">
+
+            <h1 class="wordmark" aria-label="Ensamisten">
+                <span aria-hidden="true">Ensam</span>
+
+                <span class="i-anchor" aria-hidden="true">
+                    <span class="i-stem">ı</span>
+
+                    <!-- Interactive heart -->
+                    <svg
+                        class="heart-menu"
+                        viewBox="0 0 300 270"
+                        role="group"
+                        aria-label="Website navigation"
+                    >
+                        <defs>
+                            <clipPath id="heartClip">
+                                <path d="
+                                    M150 255
+                                    C125 230 12 155 12 82
+                                    C12 28 78 -5 150 65
+                                    C222 -5 288 28 288 82
+                                    C288 155 175 230 150 255
+                                    Z
+                                "/>
+                            </clipPath>
+                        </defs>
+
+                        <!-- Heart background and clickable sections -->
+                        <g clip-path="url(#heartClip)">
+
+                            <rect
+                                class="heart-background"
+                                x="0" y="0"
+                                width="300" height="270"
+                            />
+
+                            <a
+                                href="#aboutModal"
+                                class="heart-link"
+                                aria-label="About Me"
+                            >
+                                <rect
+                                    class="heart-section"
+                                    x="0" y="0"
+                                    width="100" height="270"
+                                />
+                                <text x="50" y="132">About</text>
+                            </a>
+
+                            <a
+                                href="#projectsModal"
+                                class="heart-link"
+                                aria-label="Projects"
+                            >
+                                <rect
+                                    class="heart-section"
+                                    x="100" y="0"
+                                    width="100" height="270"
+                                />
+                                <text x="150" y="177">Projects</text>
+                            </a>
+
+                            <a
+                                href="#contactModal"
+                                class="heart-link"
+                                aria-label="Contact"
+                            >
+                                <rect
+                                    class="heart-section"
+                                    x="200" y="0"
+                                    width="100" height="270"
+                                />
+                                <text x="250" y="132">Contact</text>
+                            </a>
+
+                        </g>
+                    </svg>
+                </span>
+
+                <span aria-hidden="true">sten</span>
+            </h1>
+
         </div>
-        <a href="#" class="close-modal">Close</a>
-      </div>
-    </div>
 
-    <!-- Modal for Projects -->
-    <div class="modal" id="projectsModal">
-      <div class="modal-content">
-        <div class="card">
-          <div class="background-animation"></div>
-          <div class="content">
-            <h2>Projects</h2>
-            <p>Here are some of my favorite projects that I've worked on:</p>
-          </div>
-        </div>
-        <a href="#" class="close-modal">Close</a>
-      </div>
-    </div>
+    </main>
 
-    <!-- Modal for Contact -->
-    <div class="modal" id="contactModal">
-      <div class="modal-content">
-        <div class="card">
-          <div class="background-animation"></div>
-          <div class="content">
-            <h2>Contact Me</h2>
-            <p>If you'd like to get in touch, please drop me a message.</p>
-          </div>
+
+    <!-- ABOUT MODAL -->
+    <section class="modal" id="aboutModal">
+
+        <a href="#top" class="modal-backdrop"
+           aria-label="Close About Me"></a>
+
+        <div class="modal-content">
+
+            <div class="card">
+                <div class="background-animation"></div>
+
+                <div class="content">
+                    <h2>About Me</h2>
+                    <p>Hello, world! I am a web developer and designer.</p>
+                </div>
+            </div>
+
+            <a href="#top" class="close-modal">Close</a>
+
         </div>
-        <a href="#" class="close-modal">Close</a>
-      </div>
-    </div>
-  </div>
+    </section>
+
+
+    <!-- PROJECTS MODAL -->
+    <section class="modal" id="projectsModal">
+
+        <a href="#top" class="modal-backdrop"
+           aria-label="Close Projects"></a>
+
+        <div class="modal-content">
+
+            <div class="card">
+                <div class="background-animation"></div>
+
+                <div class="content">
+                    <h2>Projects</h2>
+                    <p>Here are some of my favorite projects that I've worked on:</p>
+                </div>
+            </div>
+
+            <a href="#top" class="close-modal">Close</a>
+
+        </div>
+    </section>
+
+
+    <!-- CONTACT MODAL -->
+    <section class="modal" id="contactModal">
+
+        <a href="#top" class="modal-backdrop"
+           aria-label="Close Contact"></a>
+
+        <div class="modal-content">
+
+            <div class="card">
+                <div class="background-animation"></div>
+
+                <div class="content">
+                    <h2>Contact Me</h2>
+                    <p>If you'd like to get in touch, please drop me a message.</p>
+                </div>
+            </div>
+
+            <a href="#top" class="close-modal">Close</a>
+
+        </div>
+    </section>
+
 </body>
-
 </html>
