@@ -5,171 +5,209 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f0f0f0">
-
     <title>Ensamisten</title>
-
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body id="top">
+<body>
 
-    <main class="container">
+<div class="site-shell">
 
-        <div class="logo" aria-label="Ensamisten">
+    <!-- CSS-only room selection -->
+    <input type="radio" name="room" id="room-home" checked>
 
-            <h1 class="wordmark" aria-label="Ensamisten">
-                <span aria-hidden="true">Ensam</span>
+    <input type="radio" name="room" id="room-1">
+    <input type="radio" name="room" id="room-2">
+    <input type="radio" name="room" id="room-3">
+    <input type="radio" name="room" id="room-4">
+    <input type="radio" name="room" id="room-5">
+    <input type="radio" name="room" id="room-6">
+    <input type="radio" name="room" id="room-7">
+    <input type="radio" name="room" id="room-8">
+    <input type="radio" name="room" id="room-9">
+    <input type="radio" name="room" id="room-10">
 
-                <span class="i-anchor" aria-hidden="true">
-                    <span class="i-stem">ı</span>
+    <!-- HOME -->
+    <main class="homepage">
 
-                    <!-- Interactive heart -->
-                    <svg
-                        class="heart-menu"
-                        viewBox="0 0 300 270"
-                        role="group"
-                        aria-label="Website navigation"
-                    >
-                        <defs>
-                            <clipPath id="heartClip">
-                                <path d="
-                                    M150 255
-                                    C125 230 12 155 12 82
-                                    C12 28 78 -5 150 65
-                                    C222 -5 288 28 288 82
-                                    C288 155 175 230 150 255
-                                    Z
-                                "/>
-                            </clipPath>
-                        </defs>
+        <nav class="wordmark" aria-label="Explore Ensamisten">
 
-                        <!-- Heart background and clickable sections -->
-                        <g clip-path="url(#heartClip)">
+            <label class="letter" data-room="1" for="room-1">
+                <span>E</span>
+            </label>
 
-                            <rect
-                                class="heart-background"
-                                x="0" y="0"
-                                width="300" height="270"
-                            />
+            <label class="letter" data-room="2" for="room-2">
+                <span>n</span>
+            </label>
 
-                            <a
-                                href="#aboutModal"
-                                class="heart-link"
-                                aria-label="About Me"
-                            >
-                                <rect
-                                    class="heart-section"
-                                    x="0" y="0"
-                                    width="100" height="270"
-                                />
-                                <text x="50" y="132">About</text>
-                            </a>
+            <label class="letter" data-room="3" for="room-3">
+                <span>s</span>
+            </label>
 
-                            <a
-                                href="#projectsModal"
-                                class="heart-link"
-                                aria-label="Projects"
-                            >
-                                <rect
-                                    class="heart-section"
-                                    x="100" y="0"
-                                    width="100" height="270"
-                                />
-                                <text x="150" y="177">Projects</text>
-                            </a>
+            <label class="letter" data-room="4" for="room-4">
+                <span>a</span>
+            </label>
 
-                            <a
-                                href="#contactModal"
-                                class="heart-link"
-                                aria-label="Contact"
-                            >
-                                <rect
-                                    class="heart-section"
-                                    x="200" y="0"
-                                    width="100" height="270"
-                                />
-                                <text x="250" y="132">Contact</text>
-                            </a>
+            <label class="letter" data-room="5" for="room-5">
+                <span>m</span>
+            </label>
 
-                        </g>
-                    </svg>
-                </span>
+            <label class="letter" data-room="6" for="room-6">
+                <span>i</span>
+            </label>
 
-                <span aria-hidden="true">sten</span>
-            </h1>
+            <label class="letter" data-room="7" for="room-7">
+                <span>s</span>
+            </label>
 
-        </div>
+            <label class="letter" data-room="8" for="room-8">
+                <span>t</span>
+            </label>
+
+            <label class="letter" data-room="9" for="room-9">
+                <span>e</span>
+            </label>
+
+            <label class="letter" data-room="10" for="room-10">
+                <span>n</span>
+            </label>
+
+        </nav>
+
+        <p class="instruction">
+            Explore the letters
+        </p>
 
     </main>
 
 
-    <!-- ABOUT MODAL -->
-    <section class="modal" id="aboutModal">
+    <!-- ROOM OVERLAY -->
 
-        <a href="#top" class="modal-backdrop"
-           aria-label="Close About Me"></a>
+    <div class="room-layer">
 
-        <div class="modal-content">
-
-            <div class="card">
-                <div class="background-animation"></div>
-
-                <div class="content">
-                    <h2>About Me</h2>
-                    <p>Hello, world! I am a web developer and designer.</p>
+        <!-- ROOM 1 -->
+        <section class="room room-1">
+            <article class="room-card" style="--room-hue:280">
+                <div class="room-content">
+                    <span class="room-number">01 / E</span>
+                    <h1>Room 01</h1>
+                    <p>Your first room starts here.</p>
+                    <label class="close-room" for="room-home">Return home</label>
                 </div>
-            </div>
+            </article>
+        </section>
 
-            <a href="#top" class="close-modal">Close</a>
-
-        </div>
-    </section>
-
-
-    <!-- PROJECTS MODAL -->
-    <section class="modal" id="projectsModal">
-
-        <a href="#top" class="modal-backdrop"
-           aria-label="Close Projects"></a>
-
-        <div class="modal-content">
-
-            <div class="card">
-                <div class="background-animation"></div>
-
-                <div class="content">
-                    <h2>Projects</h2>
-                    <p>Here are some of my favorite projects that I've worked on:</p>
+        <!-- ROOM 2 -->
+        <section class="room room-2">
+            <article class="room-card" style="--room-hue:210">
+                <div class="room-content">
+                    <span class="room-number">02 / N</span>
+                    <h1>Room 02</h1>
+                    <p>A different space, a different perspective.</p>
+                    <label class="close-room" for="room-home">Return home</label>
                 </div>
-            </div>
+            </article>
+        </section>
 
-            <a href="#top" class="close-modal">Close</a>
-
-        </div>
-    </section>
-
-
-    <!-- CONTACT MODAL -->
-    <section class="modal" id="contactModal">
-
-        <a href="#top" class="modal-backdrop"
-           aria-label="Close Contact"></a>
-
-        <div class="modal-content">
-
-            <div class="card">
-                <div class="background-animation"></div>
-
-                <div class="content">
-                    <h2>Contact Me</h2>
-                    <p>If you'd like to get in touch, please drop me a message.</p>
+        <!-- ROOM 3 -->
+        <section class="room room-3">
+            <article class="room-card" style="--room-hue:320">
+                <div class="room-content">
+                    <span class="room-number">03 / S</span>
+                    <h1>Room 03</h1>
+                    <p>Discover what's inside this room.</p>
+                    <label class="close-room" for="room-home">Return home</label>
                 </div>
-            </div>
+            </article>
+        </section>
 
-            <a href="#top" class="close-modal">Close</a>
+        <!-- ROOM 4 -->
+        <section class="room room-4">
+            <article class="room-card" style="--room-hue:35">
+                <div class="room-content">
+                    <span class="room-number">04 / A</span>
+                    <h1>Room 04</h1>
+                    <p>This space is yours to define.</p>
+                    <label class="close-room" for="room-home">Return home</label>
+                </div>
+            </article>
+        </section>
 
-        </div>
-    </section>
+        <!-- ROOM 5 -->
+        <section class="room room-5">
+            <article class="room-card" style="--room-hue:170">
+                <div class="room-content">
+                    <span class="room-number">05 / M</span>
+                    <h1>Room 05</h1>
+                    <p>Explore another dimension of Ensamisten.</p>
+                    <label class="close-room" for="room-home">Return home</label>
+                </div>
+            </article>
+        </section>
+
+        <!-- ROOM 6 -->
+        <section class="room room-6">
+            <article class="room-card" style="--room-hue:250">
+                <div class="room-content">
+                    <span class="room-number">06 / I</span>
+                    <h1>Room 06</h1>
+                    <p>Every room has its own identity.</p>
+                    <label class="close-room" for="room-home">Return home</label>
+                </div>
+            </article>
+        </section>
+
+        <!-- ROOM 7 -->
+        <section class="room room-7">
+            <article class="room-card" style="--room-hue:15">
+                <div class="room-content">
+                    <span class="room-number">07 / S</span>
+                    <h1>Room 07</h1>
+                    <p>A new space to explore.</p>
+                    <label class="close-room" for="room-home">Return home</label>
+                </div>
+            </article>
+        </section>
+
+        <!-- ROOM 8 -->
+        <section class="room room-8">
+            <article class="room-card" style="--room-hue:190">
+                <div class="room-content">
+                    <span class="room-number">08 / T</span>
+                    <h1>Room 08</h1>
+                    <p>Give this room its own purpose.</p>
+                    <label class="close-room" for="room-home">Return home</label>
+                </div>
+            </article>
+        </section>
+
+        <!-- ROOM 9 -->
+        <section class="room room-9">
+            <article class="room-card" style="--room-hue:100">
+                <div class="room-content">
+                    <span class="room-number">09 / E</span>
+                    <h1>Room 09</h1>
+                    <p>Another part of your world.</p>
+                    <label class="close-room" for="room-home">Return home</label>
+                </div>
+            </article>
+        </section>
+
+        <!-- ROOM 10 -->
+        <section class="room room-10">
+            <article class="room-card" style="--room-hue:300">
+                <div class="room-content">
+                    <span class="room-number">10 / N</span>
+                    <h1>Room 10</h1>
+                    <p>The final room is only the beginning.</p>
+                    <label class="close-room" for="room-home">Return home</label>
+                </div>
+            </article>
+        </section>
+
+    </div>
+
+</div>
 
 </body>
 </html>
