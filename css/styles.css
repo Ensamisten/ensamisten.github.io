@@ -1242,3 +1242,591 @@ body {
     }
 
 }
+
+/* ==================================================
+   24. MACHINE ROOM
+================================================== */
+
+.machine-room {
+
+    --machine-accent: #a9dfff;
+    --machine-text: #f0f7ff;
+    --machine-muted: #a4bbcf;
+
+    background: #101c2b;
+}
+
+
+/* ==================================================
+   MACHINE ROOM BACKGROUND
+================================================== */
+
+.machine-room::before {
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 35%,
+            rgba(120, 200, 255, 0.35),
+            transparent 65%
+        ),
+
+        radial-gradient(
+            ellipse at 15% 20%,
+            rgba(200, 225, 255, 0.2),
+            transparent 50%
+        ),
+
+        radial-gradient(
+            ellipse at 85% 80%,
+            rgba(30, 90, 160, 0.5),
+            transparent 55%
+        ),
+
+        linear-gradient(
+            135deg,
+            #080f19,
+            #20384f,
+            #101c2b
+        );
+
+    background-size: 200% 200%;
+
+    animation: roomGradient 15s ease infinite;
+}
+
+
+/* Subtle circuit-board pattern */
+
+.machine-room::after {
+
+    background-image:
+
+        linear-gradient(
+            rgba(160, 210, 255, 0.035) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(160, 210, 255, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 35px 35px;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   MACHINE ROOM WORDMARK
+================================================== */
+
+/*
+   Move the wordmark upwards only while the
+   Machine Room is permanently selected.
+
+   The hover preview keeps the wordmark stationary
+   so the mouse does not lose its hover target.
+*/
+
+#room-5:checked ~ .homepage {
+
+    justify-content: flex-start;
+
+    padding-top: 5vh;
+}
+
+
+/* ==================================================
+   MACHINE ROOM CONTENT
+================================================== */
+
+.machine-content {
+
+    top: 24vh;
+
+    bottom: calc(var(--home-button-bottom) + 70px);
+
+    width: min(950px, calc(100% - 40px));
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    padding: 10px 12px 20px;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        rgba(169, 223, 255, 0.45)
+        transparent;
+
+    overscroll-behavior: contain;
+
+    pointer-events: none;
+}
+
+
+/* Enable scrolling when Room 05 is selected */
+
+#room-5:checked ~ .room-layer .machine-content {
+
+    pointer-events: auto;
+}
+
+
+/* Machine room heading */
+
+.machine-content h1 {
+
+    margin: 0 0 8px;
+
+    font-size: clamp(1.7rem, 4vw, 2.8rem);
+
+    color: var(--machine-text);
+
+    text-shadow:
+        0 0 25px rgba(169, 223, 255, 0.2);
+}
+
+
+/* Machine room description */
+
+.machine-content > p {
+
+    margin: 0 0 22px;
+
+    font-size: 0.95rem;
+
+    color: var(--machine-muted);
+}
+
+
+/* Room number */
+
+.machine-content .room-number {
+
+    margin-bottom: 10px;
+
+    color: var(--machine-accent);
+}
+
+
+/* ==================================================
+   HARDWARE GRID
+================================================== */
+
+.hardware-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+
+    width: 100%;
+
+    text-align: left;
+}
+
+
+/* ==================================================
+   HARDWARE CARDS
+================================================== */
+
+.hardware-card {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    min-width: 0;
+    min-height: 100px;
+
+    padding: 18px;
+
+    overflow: hidden;
+
+    border: 1px solid
+        rgba(169, 223, 255, 0.18);
+
+    border-radius: 12px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(180, 220, 255, 0.09),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    backdrop-filter: blur(8px);
+
+    -webkit-backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.12);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Featured motherboard card */
+
+.hardware-featured {
+
+    grid-column: 1 / -1;
+
+    min-height: 120px;
+
+    border-color:
+        rgba(169, 223, 255, 0.4);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(169, 223, 255, 0.15),
+            rgba(100, 160, 220, 0.04)
+        );
+}
+
+
+/* ==================================================
+   HARDWARE ICONS
+================================================== */
+
+.hardware-icon {
+
+    display: block;
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    color: var(--machine-accent);
+
+    filter:
+        drop-shadow(
+            0 0 8px rgba(169, 223, 255, 0.2)
+        );
+
+    pointer-events: none;
+
+    transition:
+        color 0.3s ease,
+        filter 0.3s ease;
+}
+
+
+/* Larger motherboard icon */
+
+.hardware-featured .hardware-icon {
+
+    width: 68px;
+    height: 68px;
+}
+
+
+/* ==================================================
+   HARDWARE INFORMATION
+================================================== */
+
+.hardware-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+/* Component category */
+
+.hardware-category {
+
+    font-size: 0.65rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.15em;
+
+    text-transform: uppercase;
+
+    color: var(--machine-accent);
+}
+
+
+/* Component name */
+
+.hardware-info h2 {
+
+    margin: 0;
+
+    font-size: clamp(0.85rem, 2vw, 1rem);
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
+
+    color: var(--machine-text);
+}
+
+
+/* Featured component name */
+
+.hardware-featured h2 {
+
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+}
+
+
+/* Component specifications */
+
+.hardware-specs {
+
+    font-size: 0.75rem;
+
+    line-height: 1.5;
+
+    color: var(--machine-muted);
+}
+
+
+/* ==================================================
+   HARDWARE HOVER EFFECTS
+================================================== */
+
+@media (any-hover: hover) {
+
+    .hardware-card:hover {
+
+        border-color:
+            rgba(169, 223, 255, 0.65);
+
+        background:
+
+            linear-gradient(
+                135deg,
+                rgba(169, 223, 255, 0.18),
+                rgba(100, 160, 220, 0.08)
+            );
+
+        box-shadow:
+            0 0 25px rgba(100, 180, 255, 0.12);
+    }
+
+    .hardware-card:hover .hardware-icon {
+
+        color: #ffffff;
+
+        filter:
+            drop-shadow(
+                0 0 12px rgba(169, 223, 255, 0.6)
+            );
+    }
+
+    /*
+       Prevent the hardware panel from
+       interfering with letter previews.
+    */
+
+    .site-shell:has(.letter:hover)
+    .machine-content {
+
+        pointer-events: none;
+    }
+
+}
+
+
+/* ==================================================
+   MACHINE ROOM TABLET
+================================================== */
+
+@media (max-width: 768px) {
+
+    .machine-content {
+
+        top: 22vh;
+
+        width: calc(100% - 24px);
+    }
+
+    .hardware-card {
+
+        padding: 14px;
+
+        gap: 12px;
+    }
+
+    .hardware-icon {
+
+        width: 34px;
+        height: 34px;
+    }
+
+}
+
+
+/* ==================================================
+   MACHINE ROOM MOBILE
+================================================== */
+
+@media (max-width: 480px) {
+
+    #room-5:checked ~ .homepage {
+
+        padding-top: 4vh;
+    }
+
+    .machine-content {
+
+        top: 18vh;
+
+        bottom:
+            calc(var(--home-button-bottom) + 65px);
+
+        width: calc(100% - 16px);
+
+        padding: 8px 8px 16px;
+    }
+
+    .machine-content h1 {
+
+        font-size: 1.8rem;
+    }
+
+    .machine-content > p {
+
+        margin-bottom: 16px;
+
+        font-size: 0.8rem;
+    }
+
+    .hardware-grid {
+
+        grid-template-columns: minmax(0, 1fr);
+
+        gap: 8px;
+    }
+
+    .hardware-card {
+
+        min-height: 80px;
+
+        padding: 12px 14px;
+
+        gap: 14px;
+    }
+
+    .hardware-featured {
+
+        min-height: 100px;
+    }
+
+    .hardware-featured .hardware-icon {
+
+        width: 48px;
+        height: 48px;
+    }
+
+    .hardware-category {
+
+        font-size: 0.6rem;
+    }
+
+    .hardware-info h2 {
+
+        font-size: 0.85rem;
+    }
+
+    .hardware-specs {
+
+        font-size: 0.7rem;
+    }
+
+}
+
+
+/* ==================================================
+   MACHINE ROOM SHORT SCREENS
+================================================== */
+
+@media (max-height: 500px) {
+
+    #room-5:checked ~ .homepage {
+
+        padding-top: 0;
+    }
+
+    #room-5:checked ~ .homepage .wordmark {
+
+        font-size: clamp(1.8rem, 7vw, 3rem);
+    }
+
+    .machine-content {
+
+        top: 85px;
+
+        bottom:
+            calc(var(--home-button-bottom) + 45px);
+    }
+
+    .machine-content h1 {
+
+        font-size: 1.4rem;
+    }
+
+    .machine-content > p {
+
+        margin-bottom: 12px;
+
+        font-size: 0.75rem;
+    }
+
+    .hardware-card {
+
+        min-height: 70px;
+
+        padding: 10px;
+    }
+
+}
+
+
+/* ==================================================
+   MACHINE ROOM REDUCED MOTION
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .machine-room::before {
+
+        animation: none;
+    }
+
+    .hardware-card,
+    .hardware-icon {
+
+        transition: none;
+    }
+
+}
