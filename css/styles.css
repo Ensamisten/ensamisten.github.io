@@ -807,15 +807,9 @@ body {
    18. MACHINE ROOM WORDMARK
 ================================================== */
 
-#room-5:checked ~ .homepage {
-    justify-content: flex-start;
 
-    padding-top: clamp(8px, 3vh, 30px);
-}
 
-#room-5:checked ~ .homepage .wordmark {
-    font-size: clamp(2rem, 8vw, 5rem);
-}
+
 
 #room-5:checked ~ .homepage .letter[data-room="5"] {
     color: var(--machine-accent);
@@ -1126,41 +1120,17 @@ body {
    when Room 05 is permanently selected.
 */
 
-#room-5:not(:checked) ~ .room-layer .machine-content {
-    top: 58%;
 
-    bottom: 20px;
 
-    justify-content: flex-start;
-}
 
-#room-5:not(:checked) ~ .room-layer .machine-content > p {
-    margin-bottom: 8px;
-}
 
-#room-5:not(:checked) ~ .room-layer .hardware-grid {
-    gap: 5px;
-}
 
-#room-5:not(:checked) ~ .room-layer .hardware-card {
-    padding: 4px;
 
-    gap: 3px;
-}
 
-#room-5:not(:checked) ~ .room-layer .hardware-card svg {
-    width: 22px;
-    height: 22px;
 
-    max-width: 22px;
-    max-height: 22px;
 
-    flex-basis: 22px;
-}
 
-#room-5:not(:checked) ~ .room-layer .hardware-specs {
-    display: none;
-}
+
 
 
 /* ==================================================
@@ -1530,13 +1500,9 @@ body {
 
     /* Machine Room wordmark */
 
-    #room-5:checked ~ .homepage {
-        padding-top: 8px;
-    }
+    
 
-    #room-5:checked ~ .homepage .wordmark {
-        font-size: clamp(1.9rem, 10vw, 3rem);
-    }
+    
 
 
     /* Machine Room content */
@@ -1832,13 +1798,9 @@ body {
 
     /* Machine Room */
 
-    #room-5:checked ~ .homepage {
-        padding-top: 0;
-    }
+    
 
-    #room-5:checked ~ .homepage .wordmark {
-        font-size: 1.8rem;
-    }
+    
 
     .room-content.machine-content {
         top: 54px;
@@ -2031,3 +1993,108 @@ body {
 /* ==================================================
    END OF ENSAMISTEN STYLESHEET
 ================================================== */
+
+/* ==================================================
+   41. PERMANENT CENTER — ALL ROOMS
+================================================== */
+:root {
+    --wordmark-size: clamp(2rem, 10vw, 7rem);
+    --center-gap: calc(var(--wordmark-size) + 32px);
+    --footer-space: calc(var(--home-button-bottom) + 48px);
+}
+.homepage {
+    position: absolute;
+    inset: 0;
+    display: block;
+    padding: 0;
+    pointer-events: none;
+}
+.homepage .wordmark {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--wordmark-size);
+    margin: 0;
+}
+.homepage .instruction {
+    position: absolute;
+    top: calc(50% + var(--center-gap) / 2 + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    white-space: nowrap;
+}
+.homepage .letter span {
+    transform: none !important;
+    text-shadow: none !important;
+}
+/* Ordinary rooms and contacts occupy the lower half. */
+.room-content:not(.machine-content) {
+    top: calc(50% + var(--center-gap) / 2);
+    bottom: var(--footer-space);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(4px, 1.2dvh, 12px);
+}
+.room-content:not(.machine-content) :is(h1, p, .room-number) {
+    margin: 0;
+}
+.contact-links { margin-top: 4px; }
+/* Machine room: four cards above and four below the center. */
+.room-content.machine-content {
+    top: 0;
+    bottom: 0;
+    width: min(1100px, calc(100% - 20px));
+    padding: 8px 0 0;
+    justify-content: flex-start;
+    overflow: hidden;
+    pointer-events: none;
+}
+.machine-content .room-number { margin: 0 0 3px; }
+.machine-content h1 { margin: 0 0 3px; font-size: clamp(1.1rem, 3.5dvh, 2rem); }
+.machine-content > p { margin: 0; font-size: clamp(.65rem, 1.5dvh, .9rem); }
+.machine-content .hardware-grid {
+    position: absolute;
+    inset: clamp(66px, 13dvh, 100px) 0 var(--footer-space);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: minmax(0, 1fr) var(--center-gap) minmax(0, 1fr);
+    gap: 6px;
+    max-height: none;
+    width: 100%;
+    overflow: hidden;
+    /* Symmetric center gap, independent of title/footer height. */
+    top: max(clamp(66px, 13dvh, 100px), var(--footer-space));
+    bottom: max(clamp(66px, 13dvh, 100px), var(--footer-space));
+}
+.hardware-grid > .hardware-card:nth-child(-n+4) { grid-row: 1; }
+.hardware-grid > .hardware-card:nth-child(n+5) { grid-row: 3; }
+.hardware-card { padding: 6px; gap: 4px; }
+.hardware-card svg.hardware-icon { width: 30px; height: 30px; max-width: 30px; max-height: 30px; flex: 0 1 30px; }
+@media (max-width: 768px) and (min-height: 501px) {
+    .machine-content .hardware-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr)) var(--center-gap) repeat(2, minmax(0, 1fr));
+    }
+    .hardware-grid > .hardware-card:nth-child(-n+2) { grid-row: 1; }
+    .hardware-grid > .hardware-card:nth-child(n+3):nth-child(-n+4) { grid-row: 2; }
+    .hardware-grid > .hardware-card:nth-child(n+5):nth-child(-n+6) { grid-row: 4; }
+    .hardware-grid > .hardware-card:nth-child(n+7) { grid-row: 5; }
+    .hardware-card { flex-direction: row; justify-content: flex-start; }
+    .hardware-info { flex: 1; width: auto; align-items: flex-start; text-align: left; }
+    .hardware-card svg.hardware-icon { width: 24px; height: 24px; flex: 0 0 24px; }
+}
+@media (max-height: 500px) {
+    :root { --wordmark-size: clamp(1.6rem, 7vw, 3rem); --center-gap: calc(var(--wordmark-size) + 16px); }
+    .machine-content .hardware-grid { top: 48px; bottom: 48px; gap: 3px; }
+    .hardware-card { flex-direction: row; padding: 3px; gap: 4px; }
+    .hardware-info { flex: 1; width: auto; align-items: flex-start; text-align: left; }
+    .hardware-card svg.hardware-icon { width: 16px; height: 16px; flex: 0 0 16px; }
+    .hardware-specs { display: none; }
+    .room-content:not(.machine-content) h1 { font-size: 1.1rem; }
+    .room-content:not(.machine-content) p { font-size: .75rem; }
+    .contacts-room .room-number, .contacts-room .room-content p { display: none; }
+    .contact-link { padding: 5px 12px; }
+}
